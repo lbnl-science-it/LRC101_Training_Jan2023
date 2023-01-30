@@ -2,10 +2,12 @@
 marp: true
 theme: gaia
 color: #000
-footer: 'HPC training : 12 Oct, 2022'
+footer: 'HPC training : 31 Jan, 2023'
 colorSecondary: #333
 backgroundColor: #fff
 backgroundImage: url('https://marp.app/assets/hero-background.jpg')
+
+
 
 ---
 
@@ -30,8 +32,8 @@ img[alt~="center"] {
 <!-- paginate: true -->
 # Outline
 <style scoped>section { font-size: 26px; }</style>
-1. [Lawrencium supercluster Overview](#3)
-2. [Access and login to Lawrencium](#5)
+1. [Overview of Lawrencium supercluster](#3)
+2. [Getting Access and login to cluster](#5)
 3. [Data transfer to/from clusters](#10)
 4. [Software access and installation](#13)
 5. [Job submission and monitoring](#17)
@@ -39,7 +41,7 @@ img[alt~="center"] {
 
 ---
 
-## Lawrencium Cluster Overview
+## Overview of Lawrencium supercluster
 <style scoped>section { font-size: 24px; }</style>
 
 - A LBNL Condo Cluster Computing Program
@@ -64,8 +66,23 @@ img[alt~="center"] {
 <style scoped>section { font-size: 20px; }</style>
 [Detailed Information of Lawrencium](https://it.lbl.gov/resource/hpc/supported-research-clusters/lawrencium/)
 
+
+---
+## Quick Poll: 
+### Check poll question and chose your answer [here](https://www.menti.com/al8w3c3piwrn) and enter your answer.
+
 ----
-## Access to Lawrencium Cluster 
+
+### Getting Access to Cluster : [MyLRC User portal](https://mylrc.lbl.gov/)
+
+  The form based request for **project and user accounts** are now moved to [MyLRC portal](https://mylrc.lbl.gov/)
+
+
+![center w:700](figures/MyLRC_login.png)
+
+Want to learn more about MyLRC portal? [Join HPCS trainign on 7th February](https://docs.google.com/forms/d/e/1FAIpQLSd6xKIEoOThNZlp1BckRaF0bSkln2V1OZXyplTkTdw0NQgXUA/viewform?usp=sf_link).  
+
+----
 
 #### Getting Project Accounts
 - Three types of project accounts can be requested.   
@@ -73,23 +90,26 @@ img[alt~="center"] {
   2. **Condo account**: PIs buy in compute nodes to be added to the general pool, in exchange for their own priority access and share the Lawrencium infrastructure (lr_xxx)
   3. **Recharge account**: pay as you go with minimal recharge rate ~ $0.01/SU (ac_xxx)
 - Check out more details here. [Project Accounts](https://it.lbl.gov/resource/hpc/for-users/hpc-documentation/accounts/projects-accounts/)
-- The form based request are now moved to [MyLRC portal](https://mylrc.lbl.gov/)
 - LBL affiliated PI can request project accout at [MyLRC portal](https://mylrc.lbl.gov/)
 - PIs can grant PCA/condo/recharge project access to researchers/students and external collaborators.
 
 ----
-## Access to Lawrencium Cluster
 
 #### Getting User Accounts
 - PIs can sponsor researchers/students and external collaborators for cluster accounts.
 
 - Account requests and approval will be done through [MyLRC portal](https://mylrc.lbl.gov/).
-  - Account creation request
-  - PI approval 
-  - Account creation
+- Workflow
+  - Account creation request on the MyLRC portal
+  - Automatic email is sent to PI for approval
+  - PI approves request on the MyLRC portal
+  - Account creation on the cluster by HPCS team
   - Users are notified upon account availability and OTP setup.
   
 - Check out [documentation](https://it.lbl.gov/service/scienceit/high-performance-computing/lrc/mylrc-lawrencium-account-managemen-tsystem/).
+
+    -  Help us build [FAQ](https://it.lbl.gov/resource/hpc/). Submit your questions [here](https://docs.google.com/forms/d/e/1FAIpQLSfgtNRZbxmNrtNVYSZE5pHEH0foPMEMqMk3nKxenPo9xqIWrw/viewform).
+
 ---
 
 ## Login to Lawrencium Cluster
@@ -108,10 +128,12 @@ img[alt~="center"] {
 password:0123456789
 `
 Note: Characters won't appear on a screen in the password prompt when you enter in the digits.
+**FAQ**: What if I forget my PIN? 
+--> Reset PIN and test PIN+OTP here. 
 
 ----
 ## Login to Lawrencium Cluster
-Upon login to Lawrencium, you'll end up on one of the login nodes(n000[0-3].scs00) in your home directory.
+Upon login to Lawrencium, you'll end up on one of the four login nodes(n000[0-3].scs00) in your home directory.
   ```
   spsoni@n0000 ~]$ hostname
   n0000.scs00
@@ -128,8 +150,8 @@ Upon login to Lawrencium, you'll end up on one of the login nodes(n000[0-3].scs0
 - Home: `/global/home/users/$USER/` 20GB per user, data is backed up, recommended for keeping scripts and final results data
 - Global Scratch: `/global/scratch/users/$USER/`, shared, no backup, high performance Lustre parallel filesystem, recommended for keeping non-persistent data for computation.
 - Shared group project space
-   - /global/home/groups-sw/  200GB backup
-   - /global/home/group/ 400GB no backup
+   - /global/home/groups-sw/  Size: 200GB, backup: YES
+   - /global/home/group/ Size: 400GB,  backup: NO
 - Condo Storage:
   - `e.g. /clusterfs/etna/ or /global/scratch/projects/xxx`
 
@@ -141,16 +163,17 @@ Upon login to Lawrencium, you'll end up on one of the login nodes(n000[0-3].scs0
 #### lrc-xfer.lbl.gov: Data Transfer Node (DTN)
 - On Linux: scp/rsync
 ```
-# Transfer data from a local machine to Lawrencium
+# Transfer file or directory from a local machine to Lawrencium
 scp file-xxx $USER@lrc-xfer.lbl.gov:/global/home/users/$USER
 scp -r dir-xxx $USER@lrc-xfer.lbl.gov:/global/scratch/users/$USER
 
-# Transfer from Lawrencium to a local machine
+# Transfer file or directory from Lawrencium to a local machine
 scp $USER@lrc-xfer.lbl.gov:/global/scratch/users/$USER/file-xxx ~/Desktop
+scp -r $USER@lrc-xfer.lbl.gov:/global/scratch/users/$USER/dir-xxx ~/Desktop
 
-# Transfer from Lawrencium to Another Institute
+# Transfer directory from Lawrencium to Another Institute
 ssh $USER@lrc-xfer.lbl.gov   # DTN
-scp -r $USER@lrc-xfer.lbl.gov:/file-on-lawrencium $USER@other-institute:/destination/path/$USER
+scp -r $USER@lrc-xfer.lbl.gov:/dir-on-lawrencium $USER@other-institute:/destination/path/$USER
 
 rsync: a better data transfer or a backup tool
 rsync -avpz file-at-local $USER@lrc-xfer.lbl.gov:/global/home/users/$USER
@@ -165,8 +188,8 @@ rsync -avpz file-at-local $USER@lrc-xfer.lbl.gov:/global/home/users/$USER
 ![w:700 center](figures/FileZella.png)
 <style scoped>section { font-size: 22px; }</style>
 Click on connect to access Lawrencium for file transfer.
-Enter your username and password(same LRC credentials) in the pop-up window.
-Once the coneection is estblished, you are ready to drag and drop files to/from lawrencium.
+Enter your username and password (LRC credentials) in the pop-up window.
+Once the connection is established, you are ready to drag and drop files to/from lawrencium.
 
 ---
 
@@ -188,7 +211,7 @@ Once the coneection is estblished, you are ready to drag and drop files to/from 
 # Software Access: Software Module Farm 
 <style scoped>section { font-size: 22px; }</style>
 
-- Software stack, commonly used compiler, software tools are provided to all users theough [software module farm on lawrencium](https://it.lbl.gov/resource/hpc/for-users/hpc-documentation/software-module-farm/)
+- Software stack, commonly used compiler, software tools are provided to all users through [software module farm on lawrencium](https://it.lbl.gov/resource/hpc/for-users/hpc-documentation/software-module-farm/)
 - Installed and maintained on a centralized storage device and mounted as read-only NFS file system
    - Compilers: e.g. intel, gcc, MPI compilers, Python
    - Tools: e.g.matlab, singularity/apptainer, cuda
@@ -199,14 +222,14 @@ Once the coneection is estblished, you are ready to drag and drop files to/from 
 [spsoni@n0003 spsoni]$ module avail
 -------------------------- /global/software/sl-7.x86_64/modfiles/langs ---------------------------
 clang/11                  gcc/7.5.0                 perl/5.36.0
-clang/3.9.1               gcc/11.3.0                 python/3.9.12
+clang/3.9.1               gcc/11.3.0                python/3.9.12
  ...
 
 ---- /global/software/sl-7.x86_64/modfiles/tools ----
-cmake/3.7.2  gnuplot/5.0.5  octave/4.2.0 matlab/r2017b(default)  ...
+cmake/3.7.2   gnuplot/5.0.5    octave/4.2.0   matlab/r2017b(default)  ...
 
 ---- /global/software/sl-7.x86_64/modfiles/apps ----
-bio/blast/2.6.0 math/octave/current ml/tensorflow/2.5.0-py37 ...
+bio/blast/2.6.0    math/octave/current    ml/tensorflow/2.5.0-py37 ...
 ...
 ```
 ----
@@ -234,14 +257,14 @@ module load mkl/2016.4.072 openmpi/3.0.1-intel
 ---
 # Software Installation
 
-- Users are allowed to install software in their home or group space. All group memebers can access packages installed in group space.
+- Users can install software in their home, scratch or group space. Packages installed in group space are accessisble to all group memebers.
 - Users don't have admin rights, but most software can be installed at custom path using 
 ` --prefix=/path/to/your/dir`
 
 ####  Installing Python Packages as an example case
 - Python modules: abundantly available but cannot be installed in the default location without admin rights.
 - `pip install --user package_name`
-- `export PYTHONPATH`
+- `export PYTHONPATH=~/.local/lib/pythonX.X/site-packages/$PYTHONPATH`
 
 ---
 
@@ -263,7 +286,7 @@ Successfully installed ml-python-2.2
   - Activate environment: `source my_env/bin/activate`
   - Install packages into it: `python -m pip install <package-name>`
   - Deactivate  environment: `deactivate`
-- Conda environemnet: `conda create -p /global/scratch/users/spsoni/my_env <package-name>`
+- Conda environment: `conda create -p /global/scratch/users/spsoni/my_env <package-name>`
   - Activate environment: `source activate /global/scratch/users/spsoni/my_env`
   - Deactivate environment: `conda deactivate`
 ---
@@ -277,25 +300,12 @@ Why is this necessary?
 - Allow everyone to fairly share Lawrencium resources.
 
 Basic workflow:
-
-  - login to Lawrencium; you'll end up on one of the login nodes in your home directory
-  - cd to the directory from which you want to submit the job (scratch recomended)
-  - submit the job using sbatch or an interactive job using srun (discussed later)
-  - SLURM assign compute node(s) to your jobs
-  - your jobs will run on a compute node, not the login node
-----
-# Slurm-Related Environment Variables
-
-- Slurm provides global variables
-- Can be used in your job submission scripts to adapt the resources being requested in order to avoid hard-coding
-- Examples of Slurm variables
-
-  - SLURM_SUBMIT_DIR : The path of the job submission directory.
-  - SLURM_NTASKS : The number of tasks. Same as -n, –ntasks.
-  - SLURM_CPUS_PER_TASK: Number of CPUs per task.
-  - SLURM_CPUS_ON_NODE: Number of CPUs on the allocated node.
-  - SLURM_NODELIST:Contains the definition (list) of the nodes that is assigned to the job.
-  - SLURM_NNODES: Total number of nodes in the job’s resource allocation.
+- login to Lawrencium; you'll end up on one of the login nodes in your home directory
+- cd to the directory from which you want to submit the job (scratch recomended)
+- submit the job using sbatch or an interactive job using srun (discussed later)
+- SLURM assign compute node(s) to your jobs
+- your jobs will run on a compute node, not the login node 
+**FAQ**: Why my jobs are not running or Pending? What does status message mean?
 
 ----
 # Accounts, Partitions, Quality of Service (QOS)
@@ -406,7 +416,14 @@ python my.py >& mypy.out
 ```
 
 ----
+# Do you want to accelerate computation??
+Lawrencium cluster's es1 partition provides nodes with 2080Ti, V100 and A40 GPUs. 
+![center w:500](figures/gpu-accelerated-apps.png)
+Image Credits: [NVIDIA](https://blogs.nvidia.com/blog/2018/11/16/gpus-now-accelerate-almost-600-hpc-apps/)
+Common Scientific packages: GROMACS, Gaussian, VASP, NAMD,LAMMPS, Amber, GAMESS, Quantum Expresso, BLAST, ANSYS, LS-DYNA
 
+
+----
 ## Submit Jobs to es1 GPU Partition
 <style scoped>section { font-size: 18px; }</style>
 - `--gres=gpu:type:GPU#`
@@ -696,9 +713,9 @@ Detailed training materials can be found on [github](https://github.com/lbnl-sci
 - Send us tickets at hpcshelp@lbl.gov
 - More information about LBNL Supercluster and scientic computing services can be found [here](https://it.lbl.gov/service/scienceit/).
 - Looking for more trainings? Upcoming training are regularly announced [here](https://it.lbl.gov/resource/hpc/for-users/training-and-tutorials/). Other than LBNL HPC trainings  you can also access [DLab](https://dlab.berkeley.edu/partners/lbl) courses.
-  
-Your feedback is important to us for improving HPC services and training. 
-Please fill out [training survey](https://docs.google.com/forms/d/e/1FAIpQLSfFZ4k87FMzom6vrk9TgMyph-uu9jp0T6oEZF3cV1lYPKLSwA/viewform)
 
-![w:140 center](Figures/thankyou.png)
+Submit FAQ [here](https://docs.google.com/forms/d/e/1FAIpQLSfgtNRZbxmNrtNVYSZE5pHEH0foPMEMqMk3nKxenPo9xqIWrw/viewform?usp=sf_link).
+Your feedback is important to us for improving HPC services and training. Please fill out [training survey](https://docs.google.com/forms/d/e/1FAIpQLSfFZ4k87FMzom6vrk9TgMyph-uu9jp0T6oEZF3cV1lYPKLSwA/viewform)
+
+![w:100 center](Figures/thankyou.png)
 
