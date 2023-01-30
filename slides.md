@@ -52,7 +52,7 @@ img[alt~="center"] {
 
 - Lawrencium Compute Nodes
   - data center is housed in the building 50B
-  - Over 2333 compute nodes (~58216 CPU cores)
+  - over 2333 compute nodes (~58216 CPU cores)
   - 230 GPU cards
   - 32 partitions, lr3, lr4, lr5,lr6, es1, cm1 ...
   - 1492 user accounts 
