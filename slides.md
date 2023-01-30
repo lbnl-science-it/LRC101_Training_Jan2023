@@ -53,7 +53,7 @@ img[alt~="center"] {
 - Lawrencium Compute Nodes
   - data center is housed in the building 50B
   - over 2187 compute nodes (~65016 CPU cores)
-  - 230 GPU cards
+  - 210 GPU cards
   - 32 partitions, lr3, lr4, lr5,lr6, es1, cm1 ...
   - 1652 user accounts 
   - 410 projects/groups
@@ -190,6 +190,10 @@ rsync -avpz file-at-local $USER@lrc-xfer.lbl.gov:/global/home/users/$USER
 Click on connect to access Lawrencium for file transfer.
 Enter your username and password (LRC credentials) in the pop-up window.
 Once the connection is established, you are ready to drag and drop files to/from lawrencium.
+
+---
+![w:600 center](figures/filezilla_login.png)
+![w:600 center](figures/filezilla_connected.png)
 
 ---
 
@@ -664,7 +668,7 @@ More Information of [Slurm Usage](https://it.lbl.gov/resource/hpc/for-users/hpc-
 
 ---
 
-# Open OnDemand
+# Open OnDemand (OOD)
 
 - OpenOnDemand is a web platform that provides an easy access to the cluster’s HPC resourses and services.
 - Designed and developed by Ohio Supercomputer Center.
@@ -701,7 +705,7 @@ On successful authentication you will see a OOD dashboard.
 ![w:900 center](figures/dashboard.png)
 
 Lets do quick demo!
-Detailed training materials can be found on [github](https://github.com/lbnl-science-it/OOD_training_july2022).
+Want to learn more about MyLRC portal? [Join HPCS trainign on 7th February](https://docs.google.com/forms/d/e/1FAIpQLSd6xKIEoOThNZlp1BckRaF0bSkln2V1OZXyplTkTdw0NQgXUA/viewform?usp=sf_link).  
 
 ---
 
