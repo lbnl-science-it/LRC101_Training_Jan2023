@@ -148,7 +148,7 @@ Upon login to Lawrencium, you'll end up on one of the login nodes in your home d
 ## User Spaces
 
 - Home: `/global/home/users/$USER/` 20GB per user, data is backed up, recommended for keeping scripts and final results data
-- Global Scratch: `/global/scratch/users/$USER/`, shared, no backup, high performance Lustre parallel filesystem, recommended for keeping non-persistent data for computation.
+- Global Scratch: `/global/scratch/users/$USER/`, shared, no backup, high performance Lustre parallel filesystem, recommended for keeping large data required for computation or generated after computation.
 - Shared group project space
    - /global/home/groups-sw/  Size: 200GB, backup: YES
    - /global/home/group/ Size: 400GB,  backup: NO
