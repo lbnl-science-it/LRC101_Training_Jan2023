@@ -33,11 +33,11 @@ img[alt~="center"] {
 # Outline
 <style scoped>section { font-size: 26px; }</style>
 1. [Overview of Lawrencium supercluster](#3)
-2. [Getting Access and login to cluster](#5)
-3. [Data transfer to/from clusters](#10)
-4. [Software access and installation](#13)
-5. [Job submission and monitoring](#17)
-6. [Open On Demand: a browser based HPCS portal](#35)
+2. [Getting Access and login to cluster](#6)
+3. [Data transfer to/from clusters](#12)
+4. [Software access and installation](#16)
+5. [Job submission and monitoring](#20)
+6. [Open On Demand: a browser based HPCS portal](#38)
 
 ---
 
@@ -133,7 +133,7 @@ Note: Characters won't appear on a screen in the password prompt when you enter 
 
 ----
 ## Login to Lawrencium Cluster
-Upon login to Lawrencium, you'll end up on one of the four login nodes(n000[0-3].scs00) in your home directory.
+Upon login to Lawrencium, you'll end up on one of the login nodes in your home directory.
   ```
   spsoni@n0000 ~]$ hostname
   n0000.scs00
@@ -197,7 +197,7 @@ Once the connection is established, you are ready to drag and drop files to/from
 
 ---
 
-## Data Transfer with Globus
+### Data Transfer with Globus
 <style scoped>section { font-size: 22px; }</style>
 
 - Globus can be used for fast data transfer and sharing with collaborators. Connect to globus  https://globus.lbl.gov  
@@ -309,7 +309,7 @@ Basic workflow:
 - submit the job using sbatch or an interactive job using srun (discussed later)
 - SLURM assign compute node(s) to your jobs
 - your jobs will run on a compute node, not the login node 
-**FAQ**: Why my jobs are not running or Pending? What does status message mean?
+
 
 ----
 # Accounts, Partitions, Quality of Service (QOS)
@@ -420,12 +420,16 @@ python my.py >& mypy.out
 ```
 
 ----
-# Do you want to accelerate computation??
-Lawrencium cluster's es1 partition provides nodes with 2080Ti, V100 and A40 GPUs. 
-![center w:500](figures/gpu-accelerated-apps.png)
-Image Credits: [NVIDIA](https://blogs.nvidia.com/blog/2018/11/16/gpus-now-accelerate-almost-600-hpc-apps/)
-Common Scientific packages: GROMACS, Gaussian, VASP, NAMD,LAMMPS, Amber, GAMESS, Quantum Expresso, BLAST, ANSYS, LS-DYNA
 
+## Do you want to accelerate computation to gaming speed??
+
+
+![center w:500](figures/gpu-accelerated-apps.png)
+**GPU**: Graphical Processing Units, **Image Credits**: [NVIDIA blog](https://blogs.nvidia.com/blog/2018/11/16/gpus-now-accelerate-almost-600-hpc-apps/)
+
+<style scoped>section { text-align: justify; font-size: 22px;}</style> 
+Common Scientific packages: GAMESS, NAMD, LAMMPS, GROMACS, Gaussian, VASP, Amber, GAMESS, Quantum Expresso, BLAST, ANSYS, LS-DYNA
+Lawrencium cluster's **es1 partition** provides nodes with 2080Ti, V100 and A40 GPUs. 
 
 ----
 ## Submit Jobs to es1 GPU Partition
@@ -662,7 +666,7 @@ Total CPU utilization: 0%
 n0215.lr6               0%   (40) % 3473/192058    % 1655/8191      READY
 ```
 
-- `scancel <jobID>` : scancels a job
+- `scancel <jobID>` : cancels a job
 
 More Information of [Slurm Usage](https://it.lbl.gov/resource/hpc/for-users/hpc-documentation/running-jobs/)
 
