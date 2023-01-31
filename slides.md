@@ -108,7 +108,7 @@ Want to learn more about MyLRC portal? [Join HPCS trainign on 7th February](http
   
 - Check out [documentation](https://it.lbl.gov/service/scienceit/high-performance-computing/lrc/mylrc-lawrencium-account-managemen-tsystem/).
 
-    -  Help us build [FAQ](https://it.lbl.gov/resource/hpc/). Submit your questions [here](https://docs.google.com/forms/d/e/1FAIpQLSfgtNRZbxmNrtNVYSZE5pHEH0foPMEMqMk3nKxenPo9xqIWrw/viewform).
+    -  Help us build [FAQ]( https://it.lbl.gov/resource/hpc/for-users/frequently-asked-questions). Submit your questions [here](https://docs.google.com/forms/d/e/1FAIpQLSfgtNRZbxmNrtNVYSZE5pHEH0foPMEMqMk3nKxenPo9xqIWrw/viewform).
 
 ---
 
