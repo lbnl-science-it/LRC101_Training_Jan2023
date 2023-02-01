@@ -129,7 +129,7 @@ password:0123456789
 `
 Note: Characters won't appear on a screen in the password prompt when you enter in the digits.
 **FAQ**: What if I forget my PIN? 
---> Reset PIN and test PIN+OTP here. 
+--> Reset PIN and test PIN+OTP [here](https://identity.lbl.gov/otptokens/login). 
 
 ----
 ## Login to Lawrencium Cluster
